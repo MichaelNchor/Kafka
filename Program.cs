@@ -1,5 +1,5 @@
 ﻿using Confluent.Kafka;
-using Kafka.Service.Provider;
+using Kafka.Service;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nest;

@@ -1,9 +1,8 @@
 using Confluent.Kafka;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
-namespace Kafka.Service.Provider;
+namespace Kafka.Service;
 
 public class KafkaProducer
 {

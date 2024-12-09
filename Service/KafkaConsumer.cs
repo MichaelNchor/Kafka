@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nest;
 
-namespace Kafka.Service.Provider;
+namespace Kafka.Service;
 
 public class KafkaConsumer
 {
