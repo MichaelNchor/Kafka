@@ -1,4 +1,7 @@
-﻿using Confluent.Kafka;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Confluent.Kafka;
 using Kafka.Service;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
