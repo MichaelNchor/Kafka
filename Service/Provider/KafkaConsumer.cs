@@ -7,10 +7,10 @@ namespace Kafka.Service.Provider;
 
 public class KafkaConsumer
 {
-    private ILogger<KafkaConsumer> _logger;
-    private IConsumer<string, string> _consumer;
-    private IElasticClient _elasticClient;
-    private string _topic;
+    private readonly ILogger<KafkaConsumer> _logger;
+    private readonly IConsumer<string, string> _consumer;
+    private readonly IElasticClient _elasticClient;
+    private readonly string _topic;
     public KafkaConsumer(IConfiguration configuration, ILogger<KafkaConsumer> logger, IElasticClient elasticClient)
     {
         _logger = logger;
@@ -48,11 +48,11 @@ public class KafkaConsumer
 
                     if (indexResponse.IsValid)
                     {
-                        _logger.LogInformation($"Successfully indexed message with ID: {res.Id}");
+                        _logger.LogInformation("Successfully indexed message with ID: {id}", res.Id);
                     }
                     else
                     {
-                        _logger.LogError($"Failed to index message: {indexResponse.OriginalException.Message}");
+                        _logger.LogError("Failed to index message: {msg}",indexResponse.OriginalException.Message);
                     }
 
                     _logger.LogInformation("Consumed Message with {key} : {value} from topic: {topic}", res.Id,
@@ -81,7 +81,7 @@ public class KafkaConsumer
         _consumer.Dispose();
     }
     
-    public class KafkaMessage
+    private class KafkaMessage
     {
         public string? Id { get; set; }
         public string? Message { get; set; }

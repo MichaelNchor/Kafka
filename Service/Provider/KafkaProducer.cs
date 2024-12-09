@@ -7,9 +7,9 @@ namespace Kafka.Service.Provider;
 
 public class KafkaProducer
 {
-    private ILogger<KafkaProducer> _logger;
-    private IProducer<string, string> _producer;
-    private string _topic;
+    private readonly ILogger<KafkaProducer> _logger;
+    private readonly IProducer<string, string> _producer;
+    private readonly string _topic;
     public KafkaProducer(IConfiguration configuration, ILogger<KafkaProducer> logger)
     {
         _logger = logger;
@@ -29,15 +29,15 @@ public class KafkaProducer
             while (!ct.IsCancellationRequested)
             {
                 var key = $"id-{counter}";
-                var value = $"message {counter} @{DateTime.UtcNow}";
+                var value = $"message {counter}";
                 var deliveryResult = await _producer.ProduceAsync(_topic, new Message<string, string>
                 {
                     Key = key,
                     Value = value
                 },ct);
 
-                _logger.LogInformation("Produced Message {key} : {value} delivered to {topic}",
-                    key, value, deliveryResult.Topic);
+                _logger.LogInformation("Produced Message key {key} : {value} @{timestamp} delivered to {topic}",
+                    key, value, DateTime.UtcNow, deliveryResult.Topic);
 
                 counter++;
                 await Task.Delay(2000, ct);
