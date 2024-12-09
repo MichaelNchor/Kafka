@@ -55,8 +55,8 @@ public class KafkaConsumer
                         _logger.LogError("Failed to index message: {msg}",indexResponse.OriginalException.Message);
                     }
 
-                    _logger.LogInformation("Consumed Message with {key} : {value} from topic: {topic}", res.Id,
-                        res.Message, _topic);
+                    _logger.LogInformation("Consumed Message with {key} : {value} @{timestamp}  from topic: {topic}", res.Id,
+                        res.Message, DateTime.UtcNow, _topic);
                 }
                 catch (ConsumeException e)
                 {

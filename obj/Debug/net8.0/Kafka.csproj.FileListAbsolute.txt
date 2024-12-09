@@ -72,3 +72,4 @@ C:\Users\Michael Nchor\RiderProjects\Dummy\Consumer\Kafka\obj\Debug\net8.0\Kafka
 C:\Users\Michael Nchor\RiderProjects\Dummy\Consumer\Kafka\obj\Debug\net8.0\ref\Kafka.dll
 C:\Users\Michael Nchor\RiderProjects\Dummy\Consumer\Kafka\bin\Debug\net8.0\Elasticsearch.Net.dll
 C:\Users\Michael Nchor\RiderProjects\Dummy\Consumer\Kafka\bin\Debug\net8.0\Nest.dll
+C:\Users\Michael Nchor\RiderProjects\Dummy\Consumer\Kafka\obj\Debug\net8.0\Kafka.sourcelink.json
